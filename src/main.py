@@ -1,14 +1,3 @@
-"""
-Virtual Mouse - control your OS cursor with hand gestures via webcam.
-
-Gestures:
-  - Index finger up only          -> move the cursor
-  - Index + middle finger up,
-    tips brought close together   -> left click
-
-Press 'q' with the preview window focused to quit.
-"""
-
 import cv2
 import numpy as np
 import tkinter as tk
@@ -19,7 +8,6 @@ from .mouse_controller import VirtualMouse
 
 
 def get_screen_size():
-    """Query the OS screen resolution via a throwaway Tk root window."""
     root = tk.Tk()
     screen_w, screen_h = root.winfo_screenwidth(), root.winfo_screenheight()
     root.destroy()
@@ -99,8 +87,7 @@ def run():
                 break
 
     finally:
-        # Always release the camera, close windows, and free mediapipe
-        # resources, even if an exception or Ctrl+C interrupts the loop.
+        #clear
         cap.release()
         cv2.destroyAllWindows()
         tracker.close()
